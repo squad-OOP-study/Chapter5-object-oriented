@@ -76,4 +76,26 @@
 
   그래서, 리스코프 치환 원칙을 지키는 것이 매우 중요하다.
 
-- 
+- 리스코프 치환 원칙을 위반한 예시를 보게 되면,
+
+  ```kotlin
+  class Coupon {
+      fun calculateDiscountAmount(item: Item): Int {
+          if(item is SpecialItem) {
+            return 0
+          }
+          return item.price * discountRate
+      }
+  }
+  ```
+  Item 타입을 사용하는 코드는 SpecialItem 타입이 존재하는지 알 필요 없이 오로지 Item 타입만 사용해야 한다.
+  
+  하지만, 위 코드는 `is` 연산자를 이용해 SpecialItem 타입인지의 여부를 확인하고 있다.
+  
+  하위 타입인 SpecialItem이 상위 타입인 Item을 완벽하게 대체하지 못하는 상황으로 문제가 된다.
+  
+- is를 사용하는 것은 전형적인 리스코프 치환 원칙을 위반할 때 발생하는 증상이다.
+
+  is를 사용한다는 의미는 하위 타입이 상위 타입을 대체할 수 없다는 것을 의미하기 때문이다.
+  
+  새로운 종류의 하위 타입이 생길 때마다 상위 타입을 사용하는 코드를 수정해야 할 가능성이 크기 때문에, 이것은 결국 개방 폐쇄 원칙을 지킬 수도 없게 된다.
