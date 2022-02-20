@@ -224,8 +224,9 @@ ___
     - 경로 패턴을 추상화하고 Enemy에서 추상화 타입을 사용하는 구조로 바꾼다.
     - 새로운 이동 패턴이 생기면 새로운 타입의 PathPettern 구현 클래스를 추가해 주면 된다.
     - Enemy의 draw() 메서드는 변경되지 않는다.
-    - <img src="./chap5/OCP_패턴추상화.jpg" width="60%">
+    - <img src="https://user-images.githubusercontent.com/55780251/154827004-fdd3aae7-95cc-495e-9362-a5f688c17079.jpg" width="60%">
 
+ 
 > 개방 폐쇄 원칙은 유연함에 대한 것
 
 - 변경의 유연함과 관련된 것. 
